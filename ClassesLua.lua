@@ -21,7 +21,6 @@ class.new = function() --Creates a new class
 
 		for key,value in pairs(self) do 
 			newInstance[key] = value 
-			print(key)
 		end
 
 		newInstance.system_id = system_class_instances.add(newInstance)
