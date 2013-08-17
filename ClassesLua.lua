@@ -34,14 +34,15 @@ class.new = function() --Creates a new class
 end
 
 
---Ejemplo de clase
+--Class examples
 
-Duck = class.new();
-Duck.constructor = function(self)
+Duck = class.new(); --Declare a new class
+Duck.constructor = function(self) -- Set up the constructor
+	self.variable = 0 -- An internal variable of the class
 	print "Soy un pato y he sido creado"
 end
 
-Duck.cuak = function(self)
+Duck.cuak = function(self) -- A simple method
 	print("cuak" .. self.system_id )
 end
 
