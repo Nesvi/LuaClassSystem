@@ -16,7 +16,7 @@ end
 class.new = function() --Creates a new class
 	newClass = {}
 	class[#class+1] = newClass
-	newClass.new = function (self)
+	function newClass:new(...)
 		newInstance = {}
 
 		for key,value in pairs(self) do 
@@ -24,7 +24,7 @@ class.new = function() --Creates a new class
 		end
 
 		newInstance.system_id = system_class_instances.add(newInstance)
-		newInstance:constructor()
+		newInstance:constructor(...)
 
 		return newInstance
 	end
@@ -33,22 +33,3 @@ class.new = function() --Creates a new class
 end
 
 
---Class examples
-
-Duck = class.new(); --Declare a new class
-Duck.constructor = function(self) -- Set up the constructor
-	self.variable = 0 -- An internal variable of the class
-	print "Soy un pato y he sido creado"
-end
-
-Duck.cuak = function(self) -- A simple method
-	print("cuak" .. self.system_id )
-end
-
-
-object1 = Duck:new()
-object2 = Duck:new()
-
-
-object2:cuak()
-object1:cuak()
