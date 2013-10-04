@@ -13,9 +13,16 @@ end
 
 --Class storage
 
-class.new = function() --Creates a new class
+class.new = function(...) --Creates a new class
 	newClass = {}
 	class[#class+1] = newClass
+
+	for i=1, arg.n do
+		for key,value in pairs(arg[i]) do 
+			newClass[key] = value 
+		end
+	end
+		
 	function newClass:new(...)
 		newInstance = {}
 
@@ -24,7 +31,7 @@ class.new = function() --Creates a new class
 		end
 
 		newInstance.system_id = system_class_instances.add(newInstance)
-		newInstance:constructor(...)
+		newInstance:initialize(...)
 
 		return newInstance
 	end

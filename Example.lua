@@ -1,11 +1,11 @@
-require "ClassesLua"
+require "LuaClassSystem"
 
 
 --Class examples
 
 
 Duck = class.new(); --Declare a new class
-Duck.constructor = function(self) -- Set up the constructor
+Duck.initialize = function(self) -- Set up the constructor
 	self.variable = 0 -- An internal variable of the class
 	print "Soy un pato y he sido creado"
 end
@@ -30,11 +30,19 @@ object1:fly()
 
 --Parameter example
 
-Pug = class.new();
+Dog = class.new();
 
-function Pug:constructor( a, b )
+function Dog:initialize( a, b )
 	print("Parameter a = " .. a )
 	print("Parameter b = " .. b )
 end
 
-object3 = Pug:new("Hello", "world")
+object3 = Dog:new("Hello", "world")
+
+--Added heritage
+function Dog:guau()
+	print "Guau!! Guau!!"
+end
+
+YorkShire = class.new(Dog)
+YorkShire.guau()
