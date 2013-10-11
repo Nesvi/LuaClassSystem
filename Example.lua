@@ -4,7 +4,7 @@ require "LuaClassSystem"
 --Class examples
 
 
-Duck = class.new(); --Declare a new class
+class.new "Duck" --Declare a new class
 Duck.initialize = function(self) -- Set up the constructor
 	self.variable = 0 -- An internal variable of the class
 	print "Soy un pato y he sido creado"
@@ -30,7 +30,7 @@ object1:fly()
 
 --Parameter example
 
-Dog = class.new();
+class.new "Dog"
 
 function Dog:initialize( a, b )
 	print("Parameter a = " .. a )
@@ -44,5 +44,5 @@ function Dog:guau()
 	print "Guau!! Guau!!"
 end
 
-YorkShire = class.new(Dog)
+class.new("YorkShire", Dog)
 YorkShire.guau()
