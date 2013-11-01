@@ -14,11 +14,12 @@ end
 --Class storage
 
 class.new = function(...) --Creates a new class
+	local arg = {...}
 	newClass = {}
 	class[#class+1] = newClass
 	_G[arg[1]] = newClass
 	
-	for i=2, arg.n do
+	for i=2, #arg do
 		for key,value in pairs(arg[i]) do 
 			newClass[key] = value 
 		end
